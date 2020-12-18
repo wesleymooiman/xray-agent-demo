@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  xray:
+    container_name: sms-xray-daemon
+    image: amazon/aws-xray-daemon
+    ports:
+      - "2000:2000/udp"
+      - "2000:2000"
+    command: --local-mode
+    environment:
+      AWS_REGION: eu-west-1
+      AWS_PROFILE: onelogin
+    volumes:
+      - ~/.aws/:/root/.aws/:ro

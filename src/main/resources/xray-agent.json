@@ -1,0 +1,11 @@
+{
+  "serviceName": "demo",
+  "contextMissingStrategy": "LOG_ERROR",
+  "tracingEnabled": true,
+  "awsSdkVersion": 1,
+  "maxStackTraceLength": 50,
+  "streamingThreshold": 100,
+  "traceIdInjection": true,
+  "pluginsEnabled": true,
+  "collectSqlQueries": false
+}

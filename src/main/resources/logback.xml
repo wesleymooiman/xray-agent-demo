@@ -1,0 +1,24 @@
+<configuration debug="true">
+    <property name="PROJECT_ID" value="popular-mobile-api"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <pattern>%d %X{AWS-XRAY-TRACE-ID} %5p %20c{0}:%-4L - %m%n</pattern>
+            </encoder>
+        </appender>
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <logger name="feign" level="info" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.amazonaws.xray" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
